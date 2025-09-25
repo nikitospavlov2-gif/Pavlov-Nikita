@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Тест з Notepad++</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #0066cc;
+    }
+    .question {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 700px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .question h3 {
+      margin: 0 0 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #0066cc;
+      color: #fff;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    button:hover {
+      background-color: #004c99;
+    }
+    .result {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Тест з Notepad++</h1>
+
+  <div class="question">
+    <h3>1. Які основні можливості має Notepad++ у порівнянні з Блокнотом Windows?</h3>
+    <input type="text" id="q1" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q1',['підсвічування','вкладки'])">Перевірити</button>
+    <div id="r1" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>2. Як увімкнути підсвічування синтаксису?</h3>
+    <input type="text" id="q2" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q2',['language','мова'])">Перевірити</button>
+    <div id="r2" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>3. Для чого у програмі використовуються плагіни?</h3>
+    <input type="text" id="q3" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q3',['розширення','функціонал'])">Перевірити</button>
+    <div id="r3" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>4. Як встановити новий плагін у Notepad++?</h3>
+    <input type="text" id="q4" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q4',['plugin','admin'])">Перевірити</button>
+    <div id="r4" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>5. Як створити та відтворити макрос у Notepad++?</h3>
+    <input type="text" id="q5" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q5',['macro','макрос'])">Перевірити</button>
+    <div id="r5" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>6. Як працює функція пошуку та заміни тексту?</h3>
+    <input type="text" id="q6" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q6',['search','replace','ctrl'])">Перевірити</button>
+    <div id="r6" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>7. Яким чином можна змінити кодування файлу?</h3>
+    <input type="text" id="q7" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q7',['encoding','utf'])">Перевірити</button>
+    <div id="r7" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>8. Що таке автодоповнення і як його ввімкнути?</h3>
+    <input type="text" id="q8" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q8',['auto','completion','автодоповнення'])">Перевірити</button>
+    <div id="r8" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>9. Як відкрити кілька файлів у різних вкладках?</h3>
+    <input type="text" id="q9" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q9',['вкладки','tabs'])">Перевірити</button>
+    <div id="r9" class="result"></div>
+  </div>
+
+  <div class="question">
+    <h3>10. Як використовувати регулярні вирази у Notepad++?</h3>
+    <input type="text" id="q10" placeholder="Введіть відповідь">
+    <button onclick="checkAnswer('q10',['regex','регулярні'])">Перевірити</button>
+    <div id="r10" class="result"></div>
+  </div>
+
+  <script>
+    function checkAnswer(inputId, keywords) {
+      const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+      const resultEl = document.getElementById("r" + inputId.slice(1));
+      let correct = false;
+      for (let word of keywords) {
+        if (userAnswer.includes(word.toLowerCase())) {
+          correct = true;
+          break;
+        }
+      }
+      if (correct) {
+        resultEl.textContent = "Вірно ✔";
+        resultEl.className = "result correct";
+      } else {
+        resultEl.textContent = "Хибно ✘";
+        resultEl.className = "result wrong";
+      }
+    }
+  </script>
+</body>
+</html>
